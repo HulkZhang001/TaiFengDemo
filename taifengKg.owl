@@ -1,0 +1,744 @@
+<?xml version="1.0"?>
+<Ontology xmlns="http://www.w3.org/2002/07/owl#"
+     xml:base="http://www.taifengkg.com"
+     xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+     xmlns:xml="http://www.w3.org/XML/1998/namespace"
+     xmlns:xsd="http://www.w3.org/2001/XMLSchema#"
+     xmlns:rdfs="http://www.w3.org/2000/01/rdf-schema#"
+     ontologyIRI="http://www.taifengkg.com">
+    <Prefix name="owl" IRI="http://www.w3.org/2002/07/owl#"/>
+    <Prefix name="rdf" IRI="http://www.w3.org/1999/02/22-rdf-syntax-ns#"/>
+    <Prefix name="xml" IRI="http://www.w3.org/XML/1998/namespace"/>
+    <Prefix name="xsd" IRI="http://www.w3.org/2001/XMLSchema#"/>
+    <Prefix name="rdfs" IRI="http://www.w3.org/2000/01/rdf-schema#"/>
+    <Declaration>
+        <Class IRI="#JyPower"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#Taifeng"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#TaifengLj"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#TaifengYq"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#county"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#economy"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#firestation"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#hospital"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#parking"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#police"/>
+    </Declaration>
+    <Declaration>
+        <Class IRI="#shelter"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="#LjBelongsTo"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="#hasEconomy"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="#hasJy"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="#hasLj"/>
+    </Declaration>
+    <Declaration>
+        <ObjectProperty IRI="#hasYq"/>
+    </Declaration>
+    <Declaration>
+        <DataProperty IRI="#ChName"/>
+    </Declaration>
+    <Declaration>
+        <DataProperty IRI="#EnName"/>
+    </Declaration>
+    <Declaration>
+        <DataProperty IRI="#Gross"/>
+    </Declaration>
+    <Declaration>
+        <DataProperty IRI="#Gross_Agriculture"/>
+    </Declaration>
+    <Declaration>
+        <DataProperty IRI="#Gross_Industry"/>
+    </Declaration>
+    <Declaration>
+        <DataProperty IRI="#Gross_Per"/>
+    </Declaration>
+    <Declaration>
+        <DataProperty IRI="#LjTime"/>
+    </Declaration>
+    <Declaration>
+        <DataProperty IRI="#Name"/>
+    </Declaration>
+    <Declaration>
+        <DataProperty IRI="#Primary_p"/>
+    </Declaration>
+    <Declaration>
+        <DataProperty IRI="#Secondary_p"/>
+    </Declaration>
+    <Declaration>
+        <DataProperty IRI="#Tertiary"/>
+    </Declaration>
+    <Declaration>
+        <DataProperty IRI="#Year"/>
+    </Declaration>
+    <Declaration>
+        <DataProperty IRI="#adress"/>
+    </Declaration>
+    <Declaration>
+        <DataProperty IRI="#area"/>
+    </Declaration>
+    <Declaration>
+        <DataProperty IRI="#lat"/>
+    </Declaration>
+    <Declaration>
+        <DataProperty IRI="#location"/>
+    </Declaration>
+    <Declaration>
+        <DataProperty IRI="#lon"/>
+    </Declaration>
+    <Declaration>
+        <DataProperty IRI="#moveDir"/>
+    </Declaration>
+    <Declaration>
+        <DataProperty IRI="#moveSpeed"/>
+    </Declaration>
+    <Declaration>
+        <DataProperty IRI="#population"/>
+    </Declaration>
+    <Declaration>
+        <DataProperty IRI="#postalcode"/>
+    </Declaration>
+    <Declaration>
+        <DataProperty IRI="#power"/>
+    </Declaration>
+    <Declaration>
+        <DataProperty IRI="#pressure"/>
+    </Declaration>
+    <Declaration>
+        <DataProperty IRI="#radius"/>
+    </Declaration>
+    <Declaration>
+        <DataProperty IRI="#radius10"/>
+    </Declaration>
+    <Declaration>
+        <DataProperty IRI="#radius10Quad"/>
+    </Declaration>
+    <Declaration>
+        <DataProperty IRI="#radius12"/>
+    </Declaration>
+    <Declaration>
+        <DataProperty IRI="#radius12Quad"/>
+    </Declaration>
+    <Declaration>
+        <DataProperty IRI="#radius7"/>
+    </Declaration>
+    <Declaration>
+        <DataProperty IRI="#radius7Quad"/>
+    </Declaration>
+    <Declaration>
+        <DataProperty IRI="#speed"/>
+    </Declaration>
+    <Declaration>
+        <DataProperty IRI="#strong"/>
+    </Declaration>
+    <Declaration>
+        <DataProperty IRI="#tel"/>
+    </Declaration>
+    <Declaration>
+        <DataProperty IRI="#tfBeginTime"/>
+    </Declaration>
+    <Declaration>
+        <DataProperty IRI="#tfEndTime"/>
+    </Declaration>
+    <Declaration>
+        <DataProperty IRI="#time"/>
+    </Declaration>
+    <Declaration>
+        <DataProperty IRI="#userId"/>
+    </Declaration>
+    <Declaration>
+        <DataProperty IRI="#userName"/>
+    </Declaration>
+    <Declaration>
+        <DataProperty IRI="#wbText"/>
+    </Declaration>
+    <SubClassOf>
+        <Class IRI="#firestation"/>
+        <Class IRI="#JyPower"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#hospital"/>
+        <Class IRI="#JyPower"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#parking"/>
+        <Class IRI="#JyPower"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#police"/>
+        <Class IRI="#JyPower"/>
+    </SubClassOf>
+    <SubClassOf>
+        <Class IRI="#shelter"/>
+        <Class IRI="#JyPower"/>
+    </SubClassOf>
+    <InverseObjectProperties>
+        <ObjectProperty IRI="#LjBelongsTo"/>
+        <ObjectProperty IRI="#hasLj"/>
+    </InverseObjectProperties>
+    <ObjectPropertyDomain>
+        <ObjectProperty IRI="#LjBelongsTo"/>
+        <Class IRI="#TaifengLj"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
+        <ObjectProperty IRI="#hasEconomy"/>
+        <Class IRI="#county"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
+        <ObjectProperty IRI="#hasJy"/>
+        <Class IRI="#county"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
+        <ObjectProperty IRI="#hasLj"/>
+        <Class IRI="#Taifeng"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyDomain>
+        <ObjectProperty IRI="#hasYq"/>
+        <Class IRI="#Taifeng"/>
+    </ObjectPropertyDomain>
+    <ObjectPropertyRange>
+        <ObjectProperty IRI="#LjBelongsTo"/>
+        <Class IRI="#Taifeng"/>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
+        <ObjectProperty IRI="#hasEconomy"/>
+        <Class IRI="#economy"/>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
+        <ObjectProperty IRI="#hasJy"/>
+        <Class IRI="#firestation"/>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
+        <ObjectProperty IRI="#hasJy"/>
+        <Class IRI="#hospital"/>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
+        <ObjectProperty IRI="#hasJy"/>
+        <Class IRI="#parking"/>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
+        <ObjectProperty IRI="#hasJy"/>
+        <Class IRI="#police"/>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
+        <ObjectProperty IRI="#hasJy"/>
+        <Class IRI="#shelter"/>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
+        <ObjectProperty IRI="#hasLj"/>
+        <Class IRI="#TaifengLj"/>
+    </ObjectPropertyRange>
+    <ObjectPropertyRange>
+        <ObjectProperty IRI="#hasYq"/>
+        <Class IRI="#TaifengYq"/>
+    </ObjectPropertyRange>
+    <SubDataPropertyOf>
+        <DataProperty IRI="#ChName"/>
+        <DataProperty IRI="#Name"/>
+    </SubDataPropertyOf>
+    <SubDataPropertyOf>
+        <DataProperty IRI="#EnName"/>
+        <DataProperty IRI="#Name"/>
+    </SubDataPropertyOf>
+    <SubDataPropertyOf>
+        <DataProperty IRI="#LjTime"/>
+        <DataProperty IRI="#time"/>
+    </SubDataPropertyOf>
+    <SubDataPropertyOf>
+        <DataProperty IRI="#Year"/>
+        <DataProperty IRI="#time"/>
+    </SubDataPropertyOf>
+    <SubDataPropertyOf>
+        <DataProperty IRI="#adress"/>
+        <DataProperty IRI="#location"/>
+    </SubDataPropertyOf>
+    <SubDataPropertyOf>
+        <DataProperty IRI="#lat"/>
+        <DataProperty IRI="#location"/>
+    </SubDataPropertyOf>
+    <SubDataPropertyOf>
+        <DataProperty IRI="#lon"/>
+        <DataProperty IRI="#location"/>
+    </SubDataPropertyOf>
+    <SubDataPropertyOf>
+        <DataProperty IRI="#radius10"/>
+        <DataProperty IRI="#radius"/>
+    </SubDataPropertyOf>
+    <SubDataPropertyOf>
+        <DataProperty IRI="#radius10Quad"/>
+        <DataProperty IRI="#radius"/>
+    </SubDataPropertyOf>
+    <SubDataPropertyOf>
+        <DataProperty IRI="#radius12"/>
+        <DataProperty IRI="#radius"/>
+    </SubDataPropertyOf>
+    <SubDataPropertyOf>
+        <DataProperty IRI="#radius12Quad"/>
+        <DataProperty IRI="#radius"/>
+    </SubDataPropertyOf>
+    <SubDataPropertyOf>
+        <DataProperty IRI="#radius7"/>
+        <DataProperty IRI="#radius"/>
+    </SubDataPropertyOf>
+    <SubDataPropertyOf>
+        <DataProperty IRI="#radius7Quad"/>
+        <DataProperty IRI="#radius"/>
+    </SubDataPropertyOf>
+    <SubDataPropertyOf>
+        <DataProperty IRI="#tfBeginTime"/>
+        <DataProperty IRI="#time"/>
+    </SubDataPropertyOf>
+    <SubDataPropertyOf>
+        <DataProperty IRI="#tfEndTime"/>
+        <DataProperty IRI="#time"/>
+    </SubDataPropertyOf>
+    <SubDataPropertyOf>
+        <DataProperty IRI="#userName"/>
+        <DataProperty IRI="#Name"/>
+    </SubDataPropertyOf>
+    <DataPropertyDomain>
+        <DataProperty IRI="#ChName"/>
+        <Class IRI="#Taifeng"/>
+    </DataPropertyDomain>
+    <DataPropertyDomain>
+        <DataProperty IRI="#ChName"/>
+        <Class IRI="#TaifengYq"/>
+    </DataPropertyDomain>
+    <DataPropertyDomain>
+        <DataProperty IRI="#ChName"/>
+        <Class IRI="#county"/>
+    </DataPropertyDomain>
+    <DataPropertyDomain>
+        <DataProperty IRI="#ChName"/>
+        <Class IRI="#firestation"/>
+    </DataPropertyDomain>
+    <DataPropertyDomain>
+        <DataProperty IRI="#ChName"/>
+        <Class IRI="#hospital"/>
+    </DataPropertyDomain>
+    <DataPropertyDomain>
+        <DataProperty IRI="#ChName"/>
+        <Class IRI="#parking"/>
+    </DataPropertyDomain>
+    <DataPropertyDomain>
+        <DataProperty IRI="#ChName"/>
+        <Class IRI="#police"/>
+    </DataPropertyDomain>
+    <DataPropertyDomain>
+        <DataProperty IRI="#ChName"/>
+        <Class IRI="#shelter"/>
+    </DataPropertyDomain>
+    <DataPropertyDomain>
+        <DataProperty IRI="#EnName"/>
+        <Class IRI="#Taifeng"/>
+    </DataPropertyDomain>
+    <DataPropertyDomain>
+        <DataProperty IRI="#EnName"/>
+        <Class IRI="#county"/>
+    </DataPropertyDomain>
+    <DataPropertyDomain>
+        <DataProperty IRI="#Gross"/>
+        <Class IRI="#economy"/>
+    </DataPropertyDomain>
+    <DataPropertyDomain>
+        <DataProperty IRI="#Gross_Agriculture"/>
+        <Class IRI="#economy"/>
+    </DataPropertyDomain>
+    <DataPropertyDomain>
+        <DataProperty IRI="#Gross_Industry"/>
+        <Class IRI="#economy"/>
+    </DataPropertyDomain>
+    <DataPropertyDomain>
+        <DataProperty IRI="#Gross_Per"/>
+        <Class IRI="#economy"/>
+    </DataPropertyDomain>
+    <DataPropertyDomain>
+        <DataProperty IRI="#LjTime"/>
+        <Class IRI="#TaifengLj"/>
+    </DataPropertyDomain>
+    <DataPropertyDomain>
+        <DataProperty IRI="#Primary_p"/>
+        <Class IRI="#economy"/>
+    </DataPropertyDomain>
+    <DataPropertyDomain>
+        <DataProperty IRI="#Secondary_p"/>
+        <Class IRI="#economy"/>
+    </DataPropertyDomain>
+    <DataPropertyDomain>
+        <DataProperty IRI="#Tertiary"/>
+        <Class IRI="#economy"/>
+    </DataPropertyDomain>
+    <DataPropertyDomain>
+        <DataProperty IRI="#Year"/>
+        <Class IRI="#economy"/>
+    </DataPropertyDomain>
+    <DataPropertyDomain>
+        <DataProperty IRI="#adress"/>
+        <Class IRI="#firestation"/>
+    </DataPropertyDomain>
+    <DataPropertyDomain>
+        <DataProperty IRI="#adress"/>
+        <Class IRI="#hospital"/>
+    </DataPropertyDomain>
+    <DataPropertyDomain>
+        <DataProperty IRI="#adress"/>
+        <Class IRI="#parking"/>
+    </DataPropertyDomain>
+    <DataPropertyDomain>
+        <DataProperty IRI="#adress"/>
+        <Class IRI="#police"/>
+    </DataPropertyDomain>
+    <DataPropertyDomain>
+        <DataProperty IRI="#adress"/>
+        <Class IRI="#shelter"/>
+    </DataPropertyDomain>
+    <DataPropertyDomain>
+        <DataProperty IRI="#area"/>
+        <Class IRI="#county"/>
+    </DataPropertyDomain>
+    <DataPropertyDomain>
+        <DataProperty IRI="#lat"/>
+        <Class IRI="#TaifengLj"/>
+    </DataPropertyDomain>
+    <DataPropertyDomain>
+        <DataProperty IRI="#lat"/>
+        <Class IRI="#firestation"/>
+    </DataPropertyDomain>
+    <DataPropertyDomain>
+        <DataProperty IRI="#lat"/>
+        <Class IRI="#hospital"/>
+    </DataPropertyDomain>
+    <DataPropertyDomain>
+        <DataProperty IRI="#lat"/>
+        <Class IRI="#parking"/>
+    </DataPropertyDomain>
+    <DataPropertyDomain>
+        <DataProperty IRI="#lat"/>
+        <Class IRI="#police"/>
+    </DataPropertyDomain>
+    <DataPropertyDomain>
+        <DataProperty IRI="#lat"/>
+        <Class IRI="#shelter"/>
+    </DataPropertyDomain>
+    <DataPropertyDomain>
+        <DataProperty IRI="#location"/>
+        <Class IRI="#TaifengYq"/>
+    </DataPropertyDomain>
+    <DataPropertyDomain>
+        <DataProperty IRI="#location"/>
+        <Class IRI="#county"/>
+    </DataPropertyDomain>
+    <DataPropertyDomain>
+        <DataProperty IRI="#lon"/>
+        <Class IRI="#TaifengLj"/>
+    </DataPropertyDomain>
+    <DataPropertyDomain>
+        <DataProperty IRI="#lon"/>
+        <Class IRI="#firestation"/>
+    </DataPropertyDomain>
+    <DataPropertyDomain>
+        <DataProperty IRI="#lon"/>
+        <Class IRI="#hospital"/>
+    </DataPropertyDomain>
+    <DataPropertyDomain>
+        <DataProperty IRI="#lon"/>
+        <Class IRI="#parking"/>
+    </DataPropertyDomain>
+    <DataPropertyDomain>
+        <DataProperty IRI="#lon"/>
+        <Class IRI="#police"/>
+    </DataPropertyDomain>
+    <DataPropertyDomain>
+        <DataProperty IRI="#lon"/>
+        <Class IRI="#shelter"/>
+    </DataPropertyDomain>
+    <DataPropertyDomain>
+        <DataProperty IRI="#moveDir"/>
+        <Class IRI="#TaifengLj"/>
+    </DataPropertyDomain>
+    <DataPropertyDomain>
+        <DataProperty IRI="#moveSpeed"/>
+        <Class IRI="#TaifengLj"/>
+    </DataPropertyDomain>
+    <DataPropertyDomain>
+        <DataProperty IRI="#population"/>
+        <Class IRI="#county"/>
+    </DataPropertyDomain>
+    <DataPropertyDomain>
+        <DataProperty IRI="#postalcode"/>
+        <Class IRI="#county"/>
+    </DataPropertyDomain>
+    <DataPropertyDomain>
+        <DataProperty IRI="#power"/>
+        <Class IRI="#TaifengLj"/>
+    </DataPropertyDomain>
+    <DataPropertyDomain>
+        <DataProperty IRI="#pressure"/>
+        <Class IRI="#TaifengLj"/>
+    </DataPropertyDomain>
+    <DataPropertyDomain>
+        <DataProperty IRI="#radius10"/>
+        <Class IRI="#TaifengLj"/>
+    </DataPropertyDomain>
+    <DataPropertyDomain>
+        <DataProperty IRI="#radius10Quad"/>
+        <Class IRI="#TaifengLj"/>
+    </DataPropertyDomain>
+    <DataPropertyDomain>
+        <DataProperty IRI="#radius12"/>
+        <Class IRI="#TaifengLj"/>
+    </DataPropertyDomain>
+    <DataPropertyDomain>
+        <DataProperty IRI="#radius12Quad"/>
+        <Class IRI="#TaifengLj"/>
+    </DataPropertyDomain>
+    <DataPropertyDomain>
+        <DataProperty IRI="#radius7"/>
+        <Class IRI="#TaifengLj"/>
+    </DataPropertyDomain>
+    <DataPropertyDomain>
+        <DataProperty IRI="#radius7Quad"/>
+        <Class IRI="#TaifengLj"/>
+    </DataPropertyDomain>
+    <DataPropertyDomain>
+        <DataProperty IRI="#speed"/>
+        <Class IRI="#TaifengLj"/>
+    </DataPropertyDomain>
+    <DataPropertyDomain>
+        <DataProperty IRI="#strong"/>
+        <Class IRI="#TaifengLj"/>
+    </DataPropertyDomain>
+    <DataPropertyDomain>
+        <DataProperty IRI="#tel"/>
+        <Class IRI="#firestation"/>
+    </DataPropertyDomain>
+    <DataPropertyDomain>
+        <DataProperty IRI="#tel"/>
+        <Class IRI="#hospital"/>
+    </DataPropertyDomain>
+    <DataPropertyDomain>
+        <DataProperty IRI="#tel"/>
+        <Class IRI="#parking"/>
+    </DataPropertyDomain>
+    <DataPropertyDomain>
+        <DataProperty IRI="#tel"/>
+        <Class IRI="#police"/>
+    </DataPropertyDomain>
+    <DataPropertyDomain>
+        <DataProperty IRI="#tel"/>
+        <Class IRI="#shelter"/>
+    </DataPropertyDomain>
+    <DataPropertyDomain>
+        <DataProperty IRI="#tfBeginTime"/>
+        <Class IRI="#Taifeng"/>
+    </DataPropertyDomain>
+    <DataPropertyDomain>
+        <DataProperty IRI="#tfEndTime"/>
+        <Class IRI="#Taifeng"/>
+    </DataPropertyDomain>
+    <DataPropertyDomain>
+        <DataProperty IRI="#userId"/>
+        <Class IRI="#TaifengYq"/>
+    </DataPropertyDomain>
+    <DataPropertyDomain>
+        <DataProperty IRI="#userId"/>
+        <Class IRI="#firestation"/>
+    </DataPropertyDomain>
+    <DataPropertyDomain>
+        <DataProperty IRI="#userId"/>
+        <Class IRI="#hospital"/>
+    </DataPropertyDomain>
+    <DataPropertyDomain>
+        <DataProperty IRI="#userId"/>
+        <Class IRI="#parking"/>
+    </DataPropertyDomain>
+    <DataPropertyDomain>
+        <DataProperty IRI="#userId"/>
+        <Class IRI="#police"/>
+    </DataPropertyDomain>
+    <DataPropertyDomain>
+        <DataProperty IRI="#userId"/>
+        <Class IRI="#shelter"/>
+    </DataPropertyDomain>
+    <DataPropertyDomain>
+        <DataProperty IRI="#userName"/>
+        <Class IRI="#TaifengYq"/>
+    </DataPropertyDomain>
+    <DataPropertyDomain>
+        <DataProperty IRI="#wbText"/>
+        <Class IRI="#TaifengYq"/>
+    </DataPropertyDomain>
+    <DataPropertyRange>
+        <DataProperty IRI="#ChName"/>
+        <Datatype abbreviatedIRI="xsd:string"/>
+    </DataPropertyRange>
+    <DataPropertyRange>
+        <DataProperty IRI="#EnName"/>
+        <Datatype abbreviatedIRI="xsd:string"/>
+    </DataPropertyRange>
+    <DataPropertyRange>
+        <DataProperty IRI="#Gross"/>
+        <Datatype abbreviatedIRI="xsd:string"/>
+    </DataPropertyRange>
+    <DataPropertyRange>
+        <DataProperty IRI="#Gross_Agriculture"/>
+        <Datatype abbreviatedIRI="xsd:double"/>
+    </DataPropertyRange>
+    <DataPropertyRange>
+        <DataProperty IRI="#Gross_Industry"/>
+        <Datatype abbreviatedIRI="xsd:double"/>
+    </DataPropertyRange>
+    <DataPropertyRange>
+        <DataProperty IRI="#Gross_Per"/>
+        <Datatype abbreviatedIRI="xsd:double"/>
+    </DataPropertyRange>
+    <DataPropertyRange>
+        <DataProperty IRI="#LjTime"/>
+        <Datatype abbreviatedIRI="xsd:string"/>
+    </DataPropertyRange>
+    <DataPropertyRange>
+        <DataProperty IRI="#Primary_p"/>
+        <Datatype abbreviatedIRI="xsd:string"/>
+    </DataPropertyRange>
+    <DataPropertyRange>
+        <DataProperty IRI="#Secondary_p"/>
+        <Datatype abbreviatedIRI="xsd:string"/>
+    </DataPropertyRange>
+    <DataPropertyRange>
+        <DataProperty IRI="#Tertiary"/>
+        <Datatype abbreviatedIRI="xsd:string"/>
+    </DataPropertyRange>
+    <DataPropertyRange>
+        <DataProperty IRI="#Year"/>
+        <Datatype abbreviatedIRI="xsd:dateTime"/>
+    </DataPropertyRange>
+    <DataPropertyRange>
+        <DataProperty IRI="#adress"/>
+        <Datatype abbreviatedIRI="xsd:string"/>
+    </DataPropertyRange>
+    <DataPropertyRange>
+        <DataProperty IRI="#area"/>
+        <Datatype abbreviatedIRI="xsd:string"/>
+    </DataPropertyRange>
+    <DataPropertyRange>
+        <DataProperty IRI="#lat"/>
+        <Datatype abbreviatedIRI="xsd:string"/>
+    </DataPropertyRange>
+    <DataPropertyRange>
+        <DataProperty IRI="#location"/>
+        <Datatype abbreviatedIRI="xsd:string"/>
+    </DataPropertyRange>
+    <DataPropertyRange>
+        <DataProperty IRI="#lon"/>
+        <Datatype abbreviatedIRI="xsd:string"/>
+    </DataPropertyRange>
+    <DataPropertyRange>
+        <DataProperty IRI="#moveDir"/>
+        <Datatype abbreviatedIRI="xsd:string"/>
+    </DataPropertyRange>
+    <DataPropertyRange>
+        <DataProperty IRI="#moveSpeed"/>
+        <Datatype abbreviatedIRI="xsd:string"/>
+    </DataPropertyRange>
+    <DataPropertyRange>
+        <DataProperty IRI="#population"/>
+        <Datatype abbreviatedIRI="xsd:string"/>
+    </DataPropertyRange>
+    <DataPropertyRange>
+        <DataProperty IRI="#postalcode"/>
+        <Datatype abbreviatedIRI="xsd:string"/>
+    </DataPropertyRange>
+    <DataPropertyRange>
+        <DataProperty IRI="#power"/>
+        <Datatype abbreviatedIRI="xsd:string"/>
+    </DataPropertyRange>
+    <DataPropertyRange>
+        <DataProperty IRI="#pressure"/>
+        <Datatype abbreviatedIRI="xsd:string"/>
+    </DataPropertyRange>
+    <DataPropertyRange>
+        <DataProperty IRI="#radius10"/>
+        <Datatype abbreviatedIRI="xsd:string"/>
+    </DataPropertyRange>
+    <DataPropertyRange>
+        <DataProperty IRI="#radius10Quad"/>
+        <Datatype abbreviatedIRI="xsd:string"/>
+    </DataPropertyRange>
+    <DataPropertyRange>
+        <DataProperty IRI="#radius12"/>
+        <Datatype abbreviatedIRI="xsd:string"/>
+    </DataPropertyRange>
+    <DataPropertyRange>
+        <DataProperty IRI="#radius12Quad"/>
+        <Datatype abbreviatedIRI="xsd:string"/>
+    </DataPropertyRange>
+    <DataPropertyRange>
+        <DataProperty IRI="#radius7"/>
+        <Datatype abbreviatedIRI="xsd:string"/>
+    </DataPropertyRange>
+    <DataPropertyRange>
+        <DataProperty IRI="#radius7Quad"/>
+        <Datatype abbreviatedIRI="xsd:string"/>
+    </DataPropertyRange>
+    <DataPropertyRange>
+        <DataProperty IRI="#speed"/>
+        <Datatype abbreviatedIRI="xsd:string"/>
+    </DataPropertyRange>
+    <DataPropertyRange>
+        <DataProperty IRI="#strong"/>
+        <Datatype abbreviatedIRI="xsd:string"/>
+    </DataPropertyRange>
+    <DataPropertyRange>
+        <DataProperty IRI="#tel"/>
+        <Datatype abbreviatedIRI="xsd:string"/>
+    </DataPropertyRange>
+    <DataPropertyRange>
+        <DataProperty IRI="#tfBeginTime"/>
+        <Datatype abbreviatedIRI="xsd:dateTime"/>
+    </DataPropertyRange>
+    <DataPropertyRange>
+        <DataProperty IRI="#tfEndTime"/>
+        <Datatype abbreviatedIRI="xsd:dateTime"/>
+    </DataPropertyRange>
+    <DataPropertyRange>
+        <DataProperty IRI="#userId"/>
+        <Datatype abbreviatedIRI="xsd:string"/>
+    </DataPropertyRange>
+    <DataPropertyRange>
+        <DataProperty IRI="#userName"/>
+        <Datatype abbreviatedIRI="xsd:string"/>
+    </DataPropertyRange>
+    <DataPropertyRange>
+        <DataProperty IRI="#wbText"/>
+        <Datatype abbreviatedIRI="xsd:string"/>
+    </DataPropertyRange>
+</Ontology>
+
+
+
+<!-- Generated by the OWL API (version 4.5.9.2019-02-01T07:24:44Z) https://github.com/owlcs/owlapi -->
+
