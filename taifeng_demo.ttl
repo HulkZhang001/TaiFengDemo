@@ -1,0 +1,460 @@
+@prefix map: <#> .
+@prefix db: <> .
+@prefix vocab: <vocab/> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+@prefix d2rq: <http://www.wiwiss.fu-berlin.de/suhl/bizer/D2RQ/0.1#> .
+@prefix jdbc: <http://d2rq.org/terms/jdbc/> .
+
+map:database a d2rq:Database;
+	d2rq:jdbcDriver "com.mysql.jdbc.Driver";
+	d2rq:jdbcDSN "jdbc:mysql:///taifeng";
+	d2rq:username "root";
+	d2rq:password "taeyang";
+	jdbc:autoReconnect "true";
+	jdbc:zeroDateTimeBehavior "convertToNull";
+	.
+
+# Table county2economy (n:m)
+map:county2economy__link a d2rq:PropertyBridge;
+	d2rq:belongsToClassMap map:county_info;
+	d2rq:property vocab:county2economy;
+	d2rq:refersToClassMap map:economy_info;
+	d2rq:join "county2economy.County_code => county_info.County_code";
+	d2rq:join "county2economy.economy_code => economy_info.County_code";
+	.
+
+# Table county2shelter (n:m)
+map:county2shelter__link a d2rq:PropertyBridge;
+	d2rq:belongsToClassMap map:county_info;
+	d2rq:property vocab:county2shelter;
+	d2rq:refersToClassMap map:shelter_info;
+	d2rq:join "county2shelter.County_code => county_info.County_code";
+	d2rq:join "county2shelter.Shelter_code => shelter_info.shelter_code";
+	.
+
+# Table county_info
+map:county_info a d2rq:ClassMap;
+	d2rq:dataStorage map:database;
+	d2rq:uriPattern "county_info/@@county_info.County_code|urlify@@";
+	d2rq:class vocab:county_info;
+	d2rq:classDefinitionLabel "county_info";
+	.
+map:county_info__label a d2rq:PropertyBridge;
+	d2rq:belongsToClassMap map:county_info;
+	d2rq:property rdfs:label;
+	d2rq:pattern "county_info #@@county_info.County_code@@";
+	.
+map:county_info_County_code a d2rq:PropertyBridge;
+	d2rq:belongsToClassMap map:county_info;
+	d2rq:property vocab:county_info_County_code;
+	d2rq:propertyDefinitionLabel "county_info County_code";
+	d2rq:column "county_info.County_code";
+	.
+map:county_info_County_name a d2rq:PropertyBridge;
+	d2rq:belongsToClassMap map:county_info;
+	d2rq:property vocab:county_info_County_name;
+	d2rq:propertyDefinitionLabel "county_info County_name";
+	d2rq:column "county_info.County_name";
+	.
+map:county_info_County_name_en a d2rq:PropertyBridge;
+	d2rq:belongsToClassMap map:county_info;
+	d2rq:property vocab:county_info_County_name_en;
+	d2rq:propertyDefinitionLabel "county_info County_name_en";
+	d2rq:column "county_info.County_name_en";
+	.
+map:county_info_area a d2rq:PropertyBridge;
+	d2rq:belongsToClassMap map:county_info;
+	d2rq:property vocab:county_info_area;
+	d2rq:propertyDefinitionLabel "county_info area";
+	d2rq:column "county_info.area";
+	.
+map:county_info_population a d2rq:PropertyBridge;
+	d2rq:belongsToClassMap map:county_info;
+	d2rq:property vocab:county_info_population;
+	d2rq:propertyDefinitionLabel "county_info population";
+	d2rq:column "county_info.population";
+	.
+map:county_info_location a d2rq:PropertyBridge;
+	d2rq:belongsToClassMap map:county_info;
+	d2rq:property vocab:county_info_location;
+	d2rq:propertyDefinitionLabel "county_info location";
+	d2rq:column "county_info.location";
+	.
+
+# Table economy_info
+map:economy_info a d2rq:ClassMap;
+	d2rq:dataStorage map:database;
+	d2rq:uriPattern "economy_info/@@economy_info.County_code|urlify@@";
+	d2rq:class vocab:economy_info;
+	d2rq:classDefinitionLabel "economy_info";
+	.
+map:economy_info__label a d2rq:PropertyBridge;
+	d2rq:belongsToClassMap map:economy_info;
+	d2rq:property rdfs:label;
+	d2rq:pattern "economy_info #@@economy_info.County_code@@";
+	.
+map:economy_info_County_code a d2rq:PropertyBridge;
+	d2rq:belongsToClassMap map:economy_info;
+	d2rq:property vocab:economy_info_County_code;
+	d2rq:propertyDefinitionLabel "economy_info County_code";
+	d2rq:column "economy_info.County_code";
+	.
+map:economy_info_County_name a d2rq:PropertyBridge;
+	d2rq:belongsToClassMap map:economy_info;
+	d2rq:property vocab:economy_info_County_name;
+	d2rq:propertyDefinitionLabel "economy_info County_name";
+	d2rq:column "economy_info.County_name";
+	.
+map:economy_info_Gross a d2rq:PropertyBridge;
+	d2rq:belongsToClassMap map:economy_info;
+	d2rq:property vocab:economy_info_Gross;
+	d2rq:propertyDefinitionLabel "economy_info Gross";
+	d2rq:column "economy_info.Gross";
+	d2rq:datatype xsd:double;
+	.
+map:economy_info_Primary_p a d2rq:PropertyBridge;
+	d2rq:belongsToClassMap map:economy_info;
+	d2rq:property vocab:economy_info_Primary_p;
+	d2rq:propertyDefinitionLabel "economy_info Primary_p";
+	d2rq:column "economy_info.Primary_p";
+	.
+map:economy_info_Secondary_p a d2rq:PropertyBridge;
+	d2rq:belongsToClassMap map:economy_info;
+	d2rq:property vocab:economy_info_Secondary_p;
+	d2rq:propertyDefinitionLabel "economy_info Secondary_p";
+	d2rq:column "economy_info.Secondary_p";
+	.
+map:economy_info_Tertiary a d2rq:PropertyBridge;
+	d2rq:belongsToClassMap map:economy_info;
+	d2rq:property vocab:economy_info_Tertiary;
+	d2rq:propertyDefinitionLabel "economy_info Tertiary";
+	d2rq:column "economy_info.Tertiary";
+	.
+map:economy_info_Gross_Per a d2rq:PropertyBridge;
+	d2rq:belongsToClassMap map:economy_info;
+	d2rq:property vocab:economy_info_Gross_Per;
+	d2rq:propertyDefinitionLabel "economy_info Gross_Per";
+	d2rq:column "economy_info.Gross_Per";
+	d2rq:datatype xsd:double;
+	.
+map:economy_info_Gross_Industry a d2rq:PropertyBridge;
+	d2rq:belongsToClassMap map:economy_info;
+	d2rq:property vocab:economy_info_Gross_Industry;
+	d2rq:propertyDefinitionLabel "economy_info Gross_Industry";
+	d2rq:column "economy_info.Gross_Industry";
+	d2rq:datatype xsd:double;
+	.
+map:economy_info_Gross_Agriculture a d2rq:PropertyBridge;
+	d2rq:belongsToClassMap map:economy_info;
+	d2rq:property vocab:economy_info_Gross_Agriculture;
+	d2rq:propertyDefinitionLabel "economy_info Gross_Agriculture";
+	d2rq:column "economy_info.Gross_Agriculture";
+	d2rq:datatype xsd:double;
+	.
+map:economy_info_Year a d2rq:PropertyBridge;
+	d2rq:belongsToClassMap map:economy_info;
+	d2rq:property vocab:economy_info_Year;
+	d2rq:propertyDefinitionLabel "economy_info Year";
+	d2rq:column "economy_info.Year";
+	d2rq:datatype xsd:date;
+	.
+
+# Table lj2tf (n:m)
+map:lj2tf__link a d2rq:PropertyBridge;
+	d2rq:belongsToClassMap map:tf_info;
+	d2rq:property vocab:lj2tf;
+	d2rq:refersToClassMap map:tf_shanzhu_lj_info;
+	d2rq:join "lj2tf.tf_id => tf_info.tf_id";
+	d2rq:join "lj2tf.lj_id => tf_shanzhu_lj_info.lj_id";
+	.
+
+# Table shelter_info
+map:shelter_info a d2rq:ClassMap;
+	d2rq:dataStorage map:database;
+	d2rq:uriPattern "shelter_info/@@shelter_info.shelter_code|urlify@@";
+	d2rq:class vocab:shelter_info;
+	d2rq:classDefinitionLabel "shelter_info";
+	.
+map:shelter_info__label a d2rq:PropertyBridge;
+	d2rq:belongsToClassMap map:shelter_info;
+	d2rq:property rdfs:label;
+	d2rq:pattern "shelter_info #@@shelter_info.shelter_code@@";
+	.
+map:shelter_info_shelter_code a d2rq:PropertyBridge;
+	d2rq:belongsToClassMap map:shelter_info;
+	d2rq:property vocab:shelter_info_shelter_code;
+	d2rq:propertyDefinitionLabel "shelter_info shelter_code";
+	d2rq:column "shelter_info.shelter_code";
+	.
+map:shelter_info_county_name a d2rq:PropertyBridge;
+	d2rq:belongsToClassMap map:shelter_info;
+	d2rq:property vocab:shelter_info_county_name;
+	d2rq:propertyDefinitionLabel "shelter_info county_name";
+	d2rq:column "shelter_info.county_name";
+	.
+<#shelter_info_﻿name> a d2rq:PropertyBridge;
+	d2rq:belongsToClassMap map:shelter_info;
+	d2rq:property <vocab/shelter_info_﻿name>;
+	d2rq:propertyDefinitionLabel "shelter_info ﻿name";
+	d2rq:column "shelter_info.﻿name";
+	.
+map:shelter_info_lat a d2rq:PropertyBridge;
+	d2rq:belongsToClassMap map:shelter_info;
+	d2rq:property vocab:shelter_info_lat;
+	d2rq:propertyDefinitionLabel "shelter_info lat";
+	d2rq:column "shelter_info.lat";
+	.
+map:shelter_info_lng a d2rq:PropertyBridge;
+	d2rq:belongsToClassMap map:shelter_info;
+	d2rq:property vocab:shelter_info_lng;
+	d2rq:propertyDefinitionLabel "shelter_info lng";
+	d2rq:column "shelter_info.lng";
+	.
+map:shelter_info_adderss a d2rq:PropertyBridge;
+	d2rq:belongsToClassMap map:shelter_info;
+	d2rq:property vocab:shelter_info_adderss;
+	d2rq:propertyDefinitionLabel "shelter_info adderss";
+	d2rq:column "shelter_info.adderss";
+	.
+map:shelter_info_street_id a d2rq:PropertyBridge;
+	d2rq:belongsToClassMap map:shelter_info;
+	d2rq:property vocab:shelter_info_street_id;
+	d2rq:propertyDefinitionLabel "shelter_info street_id";
+	d2rq:column "shelter_info.street_id";
+	.
+map:shelter_info_telephone a d2rq:PropertyBridge;
+	d2rq:belongsToClassMap map:shelter_info;
+	d2rq:property vocab:shelter_info_telephone;
+	d2rq:propertyDefinitionLabel "shelter_info telephone";
+	d2rq:column "shelter_info.telephone";
+	.
+map:shelter_info_detail a d2rq:PropertyBridge;
+	d2rq:belongsToClassMap map:shelter_info;
+	d2rq:property vocab:shelter_info_detail;
+	d2rq:propertyDefinitionLabel "shelter_info detail";
+	d2rq:column "shelter_info.detail";
+	.
+map:shelter_info_uid a d2rq:PropertyBridge;
+	d2rq:belongsToClassMap map:shelter_info;
+	d2rq:property vocab:shelter_info_uid;
+	d2rq:propertyDefinitionLabel "shelter_info uid";
+	d2rq:column "shelter_info.uid";
+	.
+
+# Table tf_info
+map:tf_info a d2rq:ClassMap;
+	d2rq:dataStorage map:database;
+	d2rq:uriPattern "tf_info/@@tf_info.tf_id@@";
+	d2rq:class vocab:tf_info;
+	d2rq:classDefinitionLabel "tf_info";
+	.
+map:tf_info__label a d2rq:PropertyBridge;
+	d2rq:belongsToClassMap map:tf_info;
+	d2rq:property rdfs:label;
+	d2rq:pattern "tf_info #@@tf_info.tf_id@@";
+	.
+map:tf_info_tf_id a d2rq:PropertyBridge;
+	d2rq:belongsToClassMap map:tf_info;
+	d2rq:property vocab:tf_info_tf_id;
+	d2rq:propertyDefinitionLabel "tf_info tf_id";
+	d2rq:column "tf_info.tf_id";
+	d2rq:datatype xsd:integer;
+	.
+map:tf_info_tf_name a d2rq:PropertyBridge;
+	d2rq:belongsToClassMap map:tf_info;
+	d2rq:property vocab:tf_info_tf_name;
+	d2rq:propertyDefinitionLabel "tf_info tf_name";
+	d2rq:column "tf_info.tf_name";
+	.
+map:tf_info_tf_en_name a d2rq:PropertyBridge;
+	d2rq:belongsToClassMap map:tf_info;
+	d2rq:property vocab:tf_info_tf_en_name;
+	d2rq:propertyDefinitionLabel "tf_info tf_en_name";
+	d2rq:column "tf_info.tf_en_name";
+	.
+map:tf_info_begin_time a d2rq:PropertyBridge;
+	d2rq:belongsToClassMap map:tf_info;
+	d2rq:property vocab:tf_info_begin_time;
+	d2rq:propertyDefinitionLabel "tf_info begin_time";
+	d2rq:column "tf_info.begin_time";
+	d2rq:datatype xsd:dateTime;
+	.
+map:tf_info_end_time a d2rq:PropertyBridge;
+	d2rq:belongsToClassMap map:tf_info;
+	d2rq:property vocab:tf_info_end_time;
+	d2rq:propertyDefinitionLabel "tf_info end_time";
+	d2rq:column "tf_info.end_time";
+	d2rq:datatype xsd:dateTime;
+	.
+
+# Table tf_shanzhu_lj_info
+map:tf_shanzhu_lj_info a d2rq:ClassMap;
+	d2rq:dataStorage map:database;
+	d2rq:uriPattern "tf_shanzhu_lj_info/@@tf_shanzhu_lj_info.lj_id@@";
+	d2rq:class vocab:tf_shanzhu_lj_info;
+	d2rq:classDefinitionLabel "tf_shanzhu_lj_info";
+	.
+map:tf_shanzhu_lj_info__label a d2rq:PropertyBridge;
+	d2rq:belongsToClassMap map:tf_shanzhu_lj_info;
+	d2rq:property rdfs:label;
+	d2rq:pattern "tf_shanzhu_lj_info #@@tf_shanzhu_lj_info.lj_id@@";
+	.
+map:tf_shanzhu_lj_info_lj_id a d2rq:PropertyBridge;
+	d2rq:belongsToClassMap map:tf_shanzhu_lj_info;
+	d2rq:property vocab:tf_shanzhu_lj_info_lj_id;
+	d2rq:propertyDefinitionLabel "tf_shanzhu_lj_info lj_id";
+	d2rq:column "tf_shanzhu_lj_info.lj_id";
+	d2rq:datatype xsd:integer;
+	.
+map:tf_shanzhu_lj_info_time a d2rq:PropertyBridge;
+	d2rq:belongsToClassMap map:tf_shanzhu_lj_info;
+	d2rq:property vocab:tf_shanzhu_lj_info_time;
+	d2rq:propertyDefinitionLabel "tf_shanzhu_lj_info time";
+	d2rq:column "tf_shanzhu_lj_info.time";
+	.
+map:tf_shanzhu_lj_info_longitude a d2rq:PropertyBridge;
+	d2rq:belongsToClassMap map:tf_shanzhu_lj_info;
+	d2rq:property vocab:tf_shanzhu_lj_info_longitude;
+	d2rq:propertyDefinitionLabel "tf_shanzhu_lj_info longitude";
+	d2rq:column "tf_shanzhu_lj_info.longitude";
+	.
+map:tf_shanzhu_lj_info_latitude a d2rq:PropertyBridge;
+	d2rq:belongsToClassMap map:tf_shanzhu_lj_info;
+	d2rq:property vocab:tf_shanzhu_lj_info_latitude;
+	d2rq:propertyDefinitionLabel "tf_shanzhu_lj_info latitude";
+	d2rq:column "tf_shanzhu_lj_info.latitude";
+	.
+map:tf_shanzhu_lj_info_strong a d2rq:PropertyBridge;
+	d2rq:belongsToClassMap map:tf_shanzhu_lj_info;
+	d2rq:property vocab:tf_shanzhu_lj_info_strong;
+	d2rq:propertyDefinitionLabel "tf_shanzhu_lj_info strong";
+	d2rq:column "tf_shanzhu_lj_info.strong";
+	.
+map:tf_shanzhu_lj_info_power a d2rq:PropertyBridge;
+	d2rq:belongsToClassMap map:tf_shanzhu_lj_info;
+	d2rq:property vocab:tf_shanzhu_lj_info_power;
+	d2rq:propertyDefinitionLabel "tf_shanzhu_lj_info power";
+	d2rq:column "tf_shanzhu_lj_info.power";
+	.
+map:tf_shanzhu_lj_info_speed a d2rq:PropertyBridge;
+	d2rq:belongsToClassMap map:tf_shanzhu_lj_info;
+	d2rq:property vocab:tf_shanzhu_lj_info_speed;
+	d2rq:propertyDefinitionLabel "tf_shanzhu_lj_info speed";
+	d2rq:column "tf_shanzhu_lj_info.speed";
+	.
+map:tf_shanzhu_lj_info_move_dir a d2rq:PropertyBridge;
+	d2rq:belongsToClassMap map:tf_shanzhu_lj_info;
+	d2rq:property vocab:tf_shanzhu_lj_info_move_dir;
+	d2rq:propertyDefinitionLabel "tf_shanzhu_lj_info move_dir";
+	d2rq:column "tf_shanzhu_lj_info.move_dir";
+	.
+map:tf_shanzhu_lj_info_move_speed a d2rq:PropertyBridge;
+	d2rq:belongsToClassMap map:tf_shanzhu_lj_info;
+	d2rq:property vocab:tf_shanzhu_lj_info_move_speed;
+	d2rq:propertyDefinitionLabel "tf_shanzhu_lj_info move_speed";
+	d2rq:column "tf_shanzhu_lj_info.move_speed";
+	.
+map:tf_shanzhu_lj_info_pressure a d2rq:PropertyBridge;
+	d2rq:belongsToClassMap map:tf_shanzhu_lj_info;
+	d2rq:property vocab:tf_shanzhu_lj_info_pressure;
+	d2rq:propertyDefinitionLabel "tf_shanzhu_lj_info pressure";
+	d2rq:column "tf_shanzhu_lj_info.pressure";
+	.
+map:tf_shanzhu_lj_info_radius7 a d2rq:PropertyBridge;
+	d2rq:belongsToClassMap map:tf_shanzhu_lj_info;
+	d2rq:property vocab:tf_shanzhu_lj_info_radius7;
+	d2rq:propertyDefinitionLabel "tf_shanzhu_lj_info radius7";
+	d2rq:column "tf_shanzhu_lj_info.radius7";
+	.
+map:tf_shanzhu_lj_info_radius10 a d2rq:PropertyBridge;
+	d2rq:belongsToClassMap map:tf_shanzhu_lj_info;
+	d2rq:property vocab:tf_shanzhu_lj_info_radius10;
+	d2rq:propertyDefinitionLabel "tf_shanzhu_lj_info radius10";
+	d2rq:column "tf_shanzhu_lj_info.radius10";
+	.
+map:tf_shanzhu_lj_info_radius12 a d2rq:PropertyBridge;
+	d2rq:belongsToClassMap map:tf_shanzhu_lj_info;
+	d2rq:property vocab:tf_shanzhu_lj_info_radius12;
+	d2rq:propertyDefinitionLabel "tf_shanzhu_lj_info radius12";
+	d2rq:column "tf_shanzhu_lj_info.radius12";
+	.
+map:tf_shanzhu_lj_info_radius7_quad a d2rq:PropertyBridge;
+	d2rq:belongsToClassMap map:tf_shanzhu_lj_info;
+	d2rq:property vocab:tf_shanzhu_lj_info_radius7_quad;
+	d2rq:propertyDefinitionLabel "tf_shanzhu_lj_info radius7_quad";
+	d2rq:column "tf_shanzhu_lj_info.radius7_quad";
+	.
+map:tf_shanzhu_lj_info_radius10_quad a d2rq:PropertyBridge;
+	d2rq:belongsToClassMap map:tf_shanzhu_lj_info;
+	d2rq:property vocab:tf_shanzhu_lj_info_radius10_quad;
+	d2rq:propertyDefinitionLabel "tf_shanzhu_lj_info radius10_quad";
+	d2rq:column "tf_shanzhu_lj_info.radius10_quad";
+	.
+map:tf_shanzhu_lj_info_radius12_quad a d2rq:PropertyBridge;
+	d2rq:belongsToClassMap map:tf_shanzhu_lj_info;
+	d2rq:property vocab:tf_shanzhu_lj_info_radius12_quad;
+	d2rq:propertyDefinitionLabel "tf_shanzhu_lj_info radius12_quad";
+	d2rq:column "tf_shanzhu_lj_info.radius12_quad";
+	.
+
+# Table tf_shanzhu_yq_info
+map:tf_shanzhu_yq_info a d2rq:ClassMap;
+	d2rq:dataStorage map:database;
+	d2rq:uriPattern "tf_shanzhu_yq_info/@@tf_shanzhu_yq_info.wb_id@@";
+	d2rq:class vocab:tf_shanzhu_yq_info;
+	d2rq:classDefinitionLabel "tf_shanzhu_yq_info";
+	.
+map:tf_shanzhu_yq_info__label a d2rq:PropertyBridge;
+	d2rq:belongsToClassMap map:tf_shanzhu_yq_info;
+	d2rq:property rdfs:label;
+	d2rq:pattern "tf_shanzhu_yq_info #@@tf_shanzhu_yq_info.wb_id@@";
+	.
+map:tf_shanzhu_yq_info_wb_id a d2rq:PropertyBridge;
+	d2rq:belongsToClassMap map:tf_shanzhu_yq_info;
+	d2rq:property vocab:tf_shanzhu_yq_info_wb_id;
+	d2rq:propertyDefinitionLabel "tf_shanzhu_yq_info wb_id";
+	d2rq:column "tf_shanzhu_yq_info.wb_id";
+	d2rq:datatype xsd:integer;
+	.
+map:tf_shanzhu_yq_info_userid a d2rq:PropertyBridge;
+	d2rq:belongsToClassMap map:tf_shanzhu_yq_info;
+	d2rq:property vocab:tf_shanzhu_yq_info_userid;
+	d2rq:propertyDefinitionLabel "tf_shanzhu_yq_info userid";
+	d2rq:column "tf_shanzhu_yq_info.userid";
+	.
+map:tf_shanzhu_yq_info_username a d2rq:PropertyBridge;
+	d2rq:belongsToClassMap map:tf_shanzhu_yq_info;
+	d2rq:property vocab:tf_shanzhu_yq_info_username;
+	d2rq:propertyDefinitionLabel "tf_shanzhu_yq_info username";
+	d2rq:column "tf_shanzhu_yq_info.username";
+	.
+map:tf_shanzhu_yq_info_loction a d2rq:PropertyBridge;
+	d2rq:belongsToClassMap map:tf_shanzhu_yq_info;
+	d2rq:property vocab:tf_shanzhu_yq_info_loction;
+	d2rq:propertyDefinitionLabel "tf_shanzhu_yq_info loction";
+	d2rq:column "tf_shanzhu_yq_info.loction";
+	.
+map:tf_shanzhu_yq_info_text a d2rq:PropertyBridge;
+	d2rq:belongsToClassMap map:tf_shanzhu_yq_info;
+	d2rq:property vocab:tf_shanzhu_yq_info_text;
+	d2rq:propertyDefinitionLabel "tf_shanzhu_yq_info text";
+	d2rq:column "tf_shanzhu_yq_info.text";
+	.
+map:tf_shanzhu_yq_info_tf_name a d2rq:PropertyBridge;
+	d2rq:belongsToClassMap map:tf_shanzhu_yq_info;
+	d2rq:property vocab:tf_shanzhu_yq_info_tf_name;
+	d2rq:propertyDefinitionLabel "tf_shanzhu_yq_info tf_name";
+	d2rq:column "tf_shanzhu_yq_info.tf_name";
+	.
+
+# Table yq2tf (n:m)
+map:yq2tf__link a d2rq:PropertyBridge;
+	d2rq:belongsToClassMap map:tf_info;
+	d2rq:property vocab:yq2tf;
+	d2rq:refersToClassMap map:tf_shanzhu_yq_info;
+	d2rq:join "yq2tf.tf_name => tf_info.tf_name";
+	d2rq:join "yq2tf.wb_id => tf_shanzhu_yq_info.wb_id";
+	.
+
